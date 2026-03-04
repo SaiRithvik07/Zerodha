@@ -46,10 +46,3 @@ docker compose up --build
 # Run in background
 docker compose up -d --build
 ```
-
-Notes
-- Keep `backend/.env` out of version control (already ignored in `.gitignore`).
-- If you don't have MongoDB locally, use MongoDB Atlas and paste the connection string into `backend/.env`.
-- To use a local MongoDB container instead, I can add a `mongo` service to `docker-compose.yml` and update `MONGO_URL` to `mongodb://mongo:27017/zerodha`.
-
-Want me to add a GitHub Actions workflow or a local `mongo` service in `docker-compose.yml`?
