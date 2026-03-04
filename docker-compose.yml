@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+
+# Notes:
+# - Backend uses ./backend/.env for MONGO_URL. If you want a local MongoDB service,
+#   add a `mongo` service and update MONGO_URL to point to mongodb://mongo:27017/zerodha
